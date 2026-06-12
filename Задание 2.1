@@ -1,0 +1,11 @@
+const room = 'Kitchen';
+const timeOfDay = 13;
+const sensorTemp = null;
+const currentTemp = sensorTemp ?? 22;
+const isLightOn = (timeOfDay >= 18 || timeOfDay < 6) ? true : false;
+const lightOn = isLightOn ? 'включён' : 'выключен';
+switch (room) {
+    case 'kitchen':
+        console.log ('Кухня: Работает вытяжка. Свет ${lightOn}.')
+        break;
+}
