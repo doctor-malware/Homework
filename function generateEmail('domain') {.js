@@ -1,0 +1,16 @@
+function generateEmail(domain) {
+    const randomNumber = Math.floor(Math.random * 100);
+    return 'test_user_${randomNumber}@${domain}';
+};
+const maskPassword = function(password) {
+    return '********';
+};
+const createTestUser = (name, domain) => {
+    const generatedEmail = generateEmail(domain);
+    const maskedPassword = maskPassword('привет_артем');
+    const createdTestUser = {
+        userName: name, email: generatedEmail, password: maskedPassword
+    };
+    return createdTestUser;
+}
+console.log(createTestUser('QA_Ninja', 'gmail.com'));
