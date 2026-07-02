@@ -6,13 +6,10 @@ test.beforeEach(async ({ page }) => {
 
 test('Successful login', async ({ page }) => {
     await page.fill('[data-test="username"]', 'standard_user');
-    await page.fill('[data-test="password"]', 'secret');
+    await page.fill('[data-test="password"]', 'secret_sauce');
 
     const loginButton = await page.locator('[data-test="login-button"]');
     await expect(loginButton).toBeVisible();
     await loginButton.click();
-
-    const ErrorMessage = await page.locator('[data-test="error"]');
-    await expect(ErrorMessage).toBeVisible();
-    await expect(ErrorMessage).toHaveText("Epic sadface: Username and password do not match any user in this service");
+    await expect(page).toHaveURL(/inventory.html/);
 });
